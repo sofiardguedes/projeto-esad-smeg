@@ -47,6 +47,26 @@
             text-transform: uppercase;
         }
 
+        /* Estilo do Botão de Votação no Menu */
+        .btn-votar {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 1px solid white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .btn-votar:hover {
+            background: white;
+            color: var(--smeg-dark);
+            text-shadow: none;
+        }
+
         /* SECÇÃO CAPA */
         .hero {
             min-height: 100vh;
@@ -94,7 +114,7 @@
             background-color: var(--smeg-light-grey);
             border-radius: 16px;
             overflow: hidden;
-            margin-bottom: 4rem; /* Reduzi um pouco a margem aqui */
+            margin-bottom: 4rem; 
             margin-top: 2rem;
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
@@ -149,11 +169,10 @@
             align-items: center;
             text-align: center;
             padding: 6rem 2rem;
-            /* O linear-gradient escurece a imagem suavemente para o texto branco sobressair */
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('lifestyle1.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Mantém o mesmo efeito parallax elegante da capa */
+            background-attachment: fixed;
             margin-bottom: 4rem;
         }
 
@@ -271,7 +290,7 @@
                 text-align: center;
                 gap: 3rem;
             }
-            nav { padding: 1.5rem; }
+            nav { padding: 1.5rem; flex-direction: column; gap: 1rem; }
             .hero h1 { font-size: 3rem; }
             .lifestyle-content h2 { font-size: 2.2rem; }
         }
@@ -281,7 +300,10 @@
 
     <nav>
         <div class="logo">SMEG</div>
-        <div style="font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">COLEÇÃO ÁUDIO</div>
+        <div style="display: flex; gap: 2rem; align-items: center;">
+            <a href="votacao.html" class="btn-votar">VOTAR NA VARIANTE</a>
+            <div style="font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">COLEÇÃO ÁUDIO</div>
+        </div>
     </nav>
 
     <section class="hero">
@@ -302,7 +324,9 @@
             </div>
         </div>
 
-    </section> <section class="lifestyle-banner">
+    </section>
+
+    <section class="lifestyle-banner">
         <div class="lifestyle-content">
             <h2>O Centro das Atenções,<br>em Qualquer Divisão</h2>
             <p>Inspirada nas linhas inconfundíveis e nos raios de curvatura generosos dos nossos eletrodomésticos clássicos, a coluna "The Atelier" transforma a forma como vive a sua música.</p>
@@ -310,7 +334,9 @@
         </div>
     </section>
 
-    <section class="features"> <div class="feature-row">
+    <section class="features">
+        
+        <div class="feature-row">
             <div class="feature-text">
                 <h2>Honestidade Tátil e<br>Materiais Premium</h2>
                 <p>Rejeitamos o plástico banal e as interfaces digitais intrusivas. O corpo superior brilha num esmalte creme polido à mão, repousando sobre uma sólida grelha acústica em alumínio perfurado, pensada para a melhor dispersão sonora.</p>
