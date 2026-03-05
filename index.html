@@ -11,6 +11,7 @@
             --smeg-cream: #F5F4F0;
             --smeg-dark: #232323;
             --smeg-metal: #8F9194;
+            --smeg-accent: #E1E1E1;
         }
 
         body {
@@ -58,7 +59,7 @@
 
         .btn-votar:hover { background: white; color: var(--smeg-dark); }
 
-        /* 1. CAPA (capa.jpg) */
+        /* HERO - CAPA */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -77,7 +78,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
 
-        /* 2. EDITORIAL (coluna.jpg) */
+        /* EDITORIAL - COLUNA */
         .editorial-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -89,17 +90,17 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .editorial-image img { width: 100%; display: block; }
+        .editorial-image img { width: 100%; display: block; height: 100%; object-fit: cover; }
         .editorial-text { padding: 4rem; }
-        .editorial-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; }
+        .editorial-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
 
-        /* 3. LIFESTYLE (lifestyle1.jpg) */
+        /* LIFESTYLE BANNER */
         .lifestyle-banner {
             min-height: 80vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('lifestyle1.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('lifestyle.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -107,7 +108,7 @@
             text-align: center;
         }
 
-        /* 4. DETALHES (detalhebotões.jpg, detalhegrelha.jpg, detalhepega.jpg) */
+        /* GALERIA DE DETALHES */
         .details-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -118,7 +119,7 @@
         .details-gallery div { text-align: center; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
         .details-gallery img { width: 100%; height: 350px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; }
 
-        /* 5. INTERAÇÃO (embalagem.jpg, colunadesligada.jpg, colunaligada.jpg, colunacarregar.jpg) */
+        /* INTERAÇÃO */
         .interaction-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -134,6 +135,7 @@
         @media (max-width: 768px) {
             .editorial-grid, .details-gallery { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3rem; }
+            nav { padding: 1rem 2rem; }
         }
     </style>
 </head>
@@ -141,7 +143,7 @@
 
     <nav>
         <div class="logo">SMEG</div>
-        <a href="votacao.html" class="btn-votar">VOTAR NA VARIANTE</a>
+        <a href="#" class="btn-votar">VOTAR NA VARIANTE</a>
     </nav>
 
     <header class="hero">
@@ -157,13 +159,13 @@
             </div>
             <div class="editorial-text">
                 <h2>O Som Ganha uma Nova Forma</h2>
-                <p>A união entre a herança estética italiana e a engenharia de som contemporânea.</p>
+                <p>A união entre a herança estética italiana e a engenharia de som contemporânea num corpo monolítico e intemporal.</p>
             </div>
         </section>
 
         <section class="details-gallery">
             <div>
-                <img src="detalhebotoes.jpg" alt="Botões">
+                <img src="detalhebotoe.jpg" alt="Interface">
                 <p>Interface em Metal</p>
             </div>
             <div>
@@ -180,38 +182,37 @@
 
     <section class="lifestyle-banner">
         <div class="container">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem;">Design para a Vida</h2>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 4rem;">Design para a Vida</h2>
         </div>
     </section>
 
     <section class="container">
-        <h2 style="text-align: center; font-family: 'Playfair Display', serif;">Experiência Atelier</h2>
+        <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem;">Experiência Atelier</h2>
         
         <div class="interaction-grid">
             <div class="interaction-card">
                 <img src="embalagem.jpg" alt="Embalagem">
-                <p>Packaging</p>
+                <p>Sustain Packaging</p>
             </div>
             <div class="interaction-card">
-                <img src="colunadesligada.jpg" alt="Desligada">
+                <img src="colunadesligada.jpg" alt="Standby">
                 <p>Modo Repouso</p>
             </div>
             <div class="interaction-card">
-                <img src="colunaligada.jpg" alt="Ligada">
+                <img src="colunaligada.jpg" alt="Active">
                 <p>Em Funcionamento</p>
             </div>
             <div class="interaction-card">
-                <img src="colunacarregar.jpg" alt="Carregando">
+                <img src="colunacarregar.jpg" alt="Charging">
                 <p>Carga Indutiva</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="logo" style="margin-bottom: 1rem;">SMEG</div>
+        <div class="logo" style="margin-bottom: 1rem; color: white;">SMEG</div>
         <p>© 2024 Projeto Académico ESAD | Design de Produto</p>
     </footer>
 
 </body>
 </html>
-
