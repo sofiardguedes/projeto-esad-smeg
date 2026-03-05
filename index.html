@@ -7,6 +7,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap');
 
+        /* Limpeza de margens padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --smeg-cream: #F5F4F0;
             --smeg-dark: #232323;
@@ -16,9 +23,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Montserrat', Helvetica, Arial, sans-serif;
             background-color: var(--smeg-cream);
             color: var(--smeg-dark);
             line-height: 1.6;
@@ -33,7 +38,6 @@
             padding: 1.5rem 4rem;
             position: absolute;
             width: 100%;
-            box-sizing: border-box;
             z-index: 10;
             color: white;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -47,54 +51,58 @@
             text-transform: uppercase;
         }
 
-        /* SECÇÃO CAPA */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 2rem;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('capa.jpg');
+        /* --- SECÇÃO HERO (Capa) --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('capa.jpg'); 
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            display: flex;
+            align-items: center;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: white;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+            z-index: 1;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-left: 8%;
+            max-width: 800px;
         }
 
-        /* CONTAINER PRINCIPAL */
+        .hero-title {
+            color: #ffffff;
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom: 2.5rem;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* --- CONTAINER PRINCIPAL (Resto do site) --- */
         .features {
             padding: 4rem 4rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* NOVA SECÇÃO EDITORIAL (Destaque para a hero1.jpg) */
+        /* BLOCO EDITORIAL (Para a imagem hero1.jpg) */
         .editorial-block {
             display: flex;
             align-items: center;
             background-color: var(--smeg-light-grey);
             border-radius: 16px;
             overflow: hidden;
-            margin-bottom: 8rem;
+            margin-bottom: 4rem; /* Reduzido para encaixar melhor antes da nova secção */
             margin-top: 2rem;
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
@@ -120,11 +128,11 @@
         }
 
         .editorial-image {
-            flex: 1.2; /* Dá um pouco mais de espaço à imagem */
+            flex: 1.2;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #FFFFFF; /* Fundo branco para a coluna estalar */
+            background-color: #FFFFFF;
             padding: 3rem;
         }
 
@@ -137,19 +145,63 @@
         }
 
         .editorial-block:hover .editorial-image img {
-            transform: scale(1.05); /* Efeito suave ao passar o rato */
+            transform: scale(1.05);
         }
 
-        /* Secções Restantes (Lifestyle e Detalhes) */
+        /* --- NOVA SECÇÃO: LIFESTYLE BANNER --- */
+        .lifestyle-banner {
+            position: relative;
+            width: 100%;
+            min-height: 80vh; /* Ocupa 80% da altura do ecrã */
+            background-image: url('lifestyle1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito de parallax luxuoso ao fazer scroll */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .lifestyle-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55); /* Escurecimento para o texto ser legível */
+            z-index: 1;
+        }
+
+        .lifestyle-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .lifestyle-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .lifestyle-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Secção Restante (Detalhes Materiais) */
         .feature-row {
             display: flex;
             align-items: center;
             gap: 5rem;
             margin-bottom: 8rem;
-        }
-
-        .feature-row:nth-child(even) {
-            flex-direction: row-reverse;
+            margin-top: 4rem;
         }
 
         .feature-text {
@@ -172,14 +224,6 @@
 
         .feature-image {
             flex: 1;
-        }
-        
-        .feature-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         /* Grelha de Detalhes Específica */
@@ -219,21 +263,33 @@
             margin-top: 1rem;
         }
 
-        /* Responsividade para telemóveis */
+        /* Regras para ecrãs menores (Smartphones) */
         @media (max-width: 900px) {
+            .hero-content {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-section::before {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+            }
             .editorial-block {
                 flex-direction: column;
             }
             .editorial-text {
                 padding: 3rem;
             }
-            .feature-row, .feature-row:nth-child(even) {
+            .feature-row {
                 flex-direction: column;
                 text-align: center;
                 gap: 3rem;
             }
+            .lifestyle-content h2 {
+                font-size: 2.2rem;
+            }
             nav { padding: 1.5rem; }
-            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -244,9 +300,10 @@
         <div style="font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">COLEÇÃO ÁUDIO</div>
     </nav>
 
-    <section class="hero">
-        <h1>The Atelier</h1>
-        <p>A Acústica Encontra o Design Ícone</p>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">SMEG CLASSIC AUDIO.<br>PORTABLE PERFECTED.</h1>
+        </div>
     </section>
 
     <section class="features">
@@ -262,16 +319,17 @@
             </div>
         </div>
 
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>O Centro das Atenções,<br>em Qualquer Divisão</h2>
-                <p>Inspirada nas linhas inconfundíveis e nos raios de curvatura generosos dos nossos eletrodomésticos clássicos, a coluna "The Atelier" transforma a forma como vive a sua música.</p>
-                <p>Desenhada para ser uma peça de afirmação em bancadas de mármore ou mesas de centro, a sua volumetria monolítica garante a estabilidade e a inércia acústica necessárias para graves profundos, proporcionando o verdadeiro <em>Dolce Vita</em> italiano.</p>
-            </div>
-            <div class="feature-image">
-                <img src="lifestyle1.jpg" alt="SMEG speaker num ambiente de cozinha clássico">
-            </div>
+    </section>
+
+    <section class="lifestyle-banner">
+        <div class="lifestyle-content">
+            <h2>O Centro das Atenções,<br>em Qualquer Divisão</h2>
+            <p>Inspirada nas linhas inconfundíveis e nos raios de curvatura generosos dos nossos eletrodomésticos clássicos, a coluna "The Atelier" transforma a forma como vive a sua música.</p>
+            <p>Desenhada para ser uma peça de afirmação em bancadas de mármore ou mesas de centro, a sua volumetria monolítica garante a estabilidade e a inércia acústica necessárias para graves profundos, proporcionando o verdadeiro <em>Dolce Vita</em> italiano.</p>
         </div>
+    </section>
+
+    <section class="features">
 
         <div class="feature-row">
             <div class="feature-text">
