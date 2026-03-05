@@ -47,6 +47,7 @@
             text-transform: uppercase;
         }
 
+        /* Estilo do Botão de Votação no Menu */
         .btn-votar {
             color: white;
             text-decoration: none;
@@ -66,7 +67,7 @@
             text-shadow: none;
         }
 
-        /* CAPA */
+        /* SECÇÃO CAPA */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -99,13 +100,14 @@
             margin-bottom: 2rem;
         }
 
+        /* CONTAINER PRINCIPAL */
         .features {
             padding: 4rem 4rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* SECÇÃO COLUNA.JPG */
+        /* NOVA SECÇÃO EDITORIAL (Destaque para a hero.jpg) */
         .editorial-block {
             display: flex;
             align-items: center;
@@ -117,15 +119,48 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        .editorial-text { flex: 1; padding: 5rem; }
-        .editorial-text h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; font-weight: 400; line-height: 1.1; }
-        .editorial-text p { font-size: 1.1rem; color: #444; margin-bottom: 1.5rem; }
+        .editorial-text {
+            flex: 1;
+            padding: 5rem;
+        }
 
-        .editorial-image { flex: 1.2; display: flex; justify-content: center; align-items: center; background-color: #FFFFFF; padding: 3rem; }
-        .editorial-image img { width: 100%; max-width: 500px; height: auto; mix-blend-mode: multiply; transition: transform 0.5s ease; }
-        .editorial-block:hover .editorial-image img { transform: scale(1.05); }
+        .editorial-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--smeg-dark);
+        }
 
-        /* LIFESTYLE BANNER */
+        .editorial-text p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .editorial-image {
+            flex: 1.2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+            padding: 3rem;
+        }
+
+        .editorial-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            mix-blend-mode: multiply;
+            transition: transform 0.5s ease;
+        }
+
+        .editorial-block:hover .editorial-image img {
+            transform: scale(1.05);
+        }
+
+        /* --- NOVA SECÇÃO LIFESTYLE (Ecrã Inteiro) --- */
         .lifestyle-banner {
             min-height: 100vh;
             display: flex;
@@ -141,57 +176,123 @@
             margin-bottom: 4rem;
         }
 
-        .lifestyle-content { max-width: 900px; color: white; }
-        .lifestyle-content h2 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; margin-bottom: 1.5rem; }
-
-        /* DETALHES (Grelha 3 imagens) */
-        .feature-row { display: flex; align-items: center; gap: 5rem; margin-bottom: 8rem; margin-top: 4rem; }
-        .feature-row:nth-child(even) { flex-direction: row-reverse; }
-        .feature-text { flex: 1; }
-        .feature-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 400; }
-
-        .details-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .details-gallery img { width: 100%; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-        .details-gallery img:first-child { grid-column: 1 / -1; }
-
-        /* NOVA SECÇÃO: INTERAÇÃO E EMBALAGEM */
-        .interaction-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+        .lifestyle-content {
+            max-width: 900px;
         }
 
-        .interaction-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        .lifestyle-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
-        .interaction-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
+        .lifestyle-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Secções Restantes (Detalhes) */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            margin-bottom: 8rem;
+            margin-top: 4rem;
+        }
+
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .feature-text p {
+            font-size: 1.1rem;
+            color: #555;
             margin-bottom: 1rem;
         }
 
-        .interaction-card h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
-            color: var(--smeg-metal);
+        .feature-image {
+            flex: 1;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        footer { background-color: var(--smeg-dark); color: white; text-align: center; padding: 4rem 2rem; }
+        /* Grelha de Detalhes Específica */
+        .details-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
 
+        .details-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .details-gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        .details-gallery img:first-child {
+            grid-column: 1 / -1;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--smeg-dark);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        footer p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        /* Responsividade para telemóveis */
         @media (max-width: 900px) {
-            .editorial-block, .feature-row { flex-direction: column; text-align: center; }
+            .editorial-block {
+                flex-direction: column;
+            }
+            .editorial-text {
+                padding: 3rem;
+            }
+            .feature-row, .feature-row:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
             nav { padding: 1.5rem; flex-direction: column; gap: 1rem; }
-            .features { padding: 2rem; }
+            .hero h1 { font-size: 3rem; }
+            .lifestyle-content h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -211,68 +312,50 @@
     </section>
 
     <section class="features">
+        
         <div class="editorial-block">
             <div class="editorial-text">
                 <h2>O Som Ganha<br>uma Nova Forma</h2>
-                <p>Com volumes esculpidos e curvas nostálgicas, "The Atelier" homenageia as raízes do design industrial italiano dos anos 50.</p>
+                <p>Com volumes esculpidos e curvas nostálgicas, "The Atelier" não é apenas um dispositivo eletrónico, é uma extensão da arquitetura do seu espaço.</p>
+                <p>Despida de distrações visuais, a sua forma monolítica homenageia as raízes do design industrial italiano dos anos 50, com tecnologia de ponta escondida no seu interior.</p>
             </div>
             <div class="editorial-image">
-                <img src="coluna.jpg" alt="Coluna SMEG The Atelier">
+                <img src="hero.jpg" alt="Vista isolada da coluna SMEG The Atelier">
             </div>
         </div>
+
     </section>
 
     <section class="lifestyle-banner">
         <div class="lifestyle-content">
-            <h2>O Centro das Atenções</h2>
-            <p>Inspirada nas linhas inconfundíveis dos nossos eletrodomésticos clássicos.</p>
+            <h2>O Centro das Atenções,<br>em Qualquer Divisão</h2>
+            <p>Inspirada nas linhas inconfundíveis e nos raios de curvatura generosos dos nossos eletrodomésticos clássicos, a coluna "The Atelier" transforma a forma como vive a sua música.</p>
+            <p>Desenhada para ser uma peça de afirmação em bancadas de mármore ou mesas de centro, a sua volumetria monolítica garante a estabilidade e a inércia acústica necessárias para graves profundos, proporcionando o verdadeiro <em>Dolce Vita</em> italiano.</p>
         </div>
     </section>
 
     <section class="features">
+        
         <div class="feature-row">
             <div class="feature-text">
                 <h2>Honestidade Tátil e<br>Materiais Premium</h2>
-                <p>O esmalte polido, o alumínio perfurado e o couro natural que desenvolve uma pátina única com o tempo.</p>
+                <p>Rejeitamos o plástico banal e as interfaces digitais intrusivas. O corpo superior brilha num esmalte creme polido à mão, repousando sobre uma sólida grelha acústica em alumínio perfurado, pensada para a melhor dispersão sonora.</p>
+                <p>A interface tátil é esculpida em metal escovado frio ao toque, exigindo uma interação física e deliberada. A alça lateral, fixada mecanicamente, é feita em couro natural que desenvolve uma pátina única com o tempo. Um verdadeiro objeto tátil de desejo.</p>
             </div>
+            
             <div class="feature-image details-gallery">
-                <img src="detalhebotões.jpg" alt="Detalhe dos botões">
-                <img src="detalhegrelha.jpg" alt="Detalhe da grelha">
-                <img src="detalhepega.jpg" alt="Detalhe da pega em couro">
+                <img src="detailbottons1.jpg" alt="Detalhe dos botões metálicos pesados">
+                <img src="detailgrelha1.jpg" alt="Grelha acústica de alumínio perfurado">
+                <img src="detailhandle1.jpg" alt="Pega de transporte em couro natural">
             </div>
         </div>
 
-        <hr style="border: 0; height: 1px; background: #ddd; margin: 4rem 0;">
-
-        <div class="feature-text" style="text-align: center; margin-bottom: 3rem;">
-            <h2>Experiência de Utilização</h2>
-            <p>Desde o unboxing até ao momento de audição.</p>
-        </div>
-
-        <div class="interaction-grid">
-            <div class="interaction-card">
-                <img src="embalagem.jpg" alt="Embalagem The Atelier">
-                <h4>Packaging Premium</h4>
-            </div>
-            <div class="interaction-card">
-                <img src="colunadesligada.jpg" alt="Coluna em repouso">
-                <h4>Modo Standby</h4>
-            </div>
-            <div class="interaction-card">
-                <img src="colunaligada.jpg" alt="Coluna em funcionamento">
-                <h4>Som Ativo</h4>
-            </div>
-            <div class="interaction-card">
-                <img src="colunacarregar.jpg" alt="Coluna a carregar">
-                <h4>Carregamento Indutivo</h4>
-            </div>
-        </div>
     </section>
 
     <footer>
         <div class="logo" style="color: white; margin-bottom: 1rem;">SMEG</div>
         <p>Tecnologia com estilo.</p>
-        <p style="margin-top: 3rem;">© 2024 Design Concept | Projeto Académico ESAD</p>
+        <p style="margin-top: 3rem;">© 2024 Design Concept | Projeto Académico ESAD - Licenciatura em Design de Produto (3º Ano)</p>
     </footer>
 
 </body>
