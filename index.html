@@ -1,239 +1,347 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMEG | The Atelier Portable Speaker</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMEG | The Atelier Portable Speaker</title>
 
-        :root {
-            --smeg-cream: #F5F4F0;
-            --smeg-dark: #232323;
-            --smeg-red: #D2282E;
-            --smeg-metal: #8F9194;
-        }
+<style>
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--smeg-cream);
-            color: var(--smeg-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap');
 
-        /* Navegação */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 4rem;
-            position: absolute;
-            width: 100%;
-            box-sizing: border-box;
-            z-index: 10;
-        }
+:root{
+--smeg-cream:#F5F4F0;
+--smeg-dark:#232323;
+--smeg-metal:#8F9194;
+--smeg-white:#FFFFFF;
+}
 
-        .logo {
-            font-family: 'Arial', sans-serif;
-            font-weight: 900;
-            font-size: 2rem;
-            letter-spacing: 4px;
-            color: var(--smeg-dark);
-            text-transform: uppercase;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        /* Secção Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 2rem;
-            background-color: #F8F8F8;
-        }
+body{
+font-family:'Montserrat',Arial,sans-serif;
+background-color:var(--smeg-cream);
+color:var(--smeg-dark);
+line-height:1.6;
+overflow-x:hidden;
+}
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: var(--smeg-dark);
-        }
+/* NAV */
 
-        .hero p {
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #666;
-            margin-bottom: 2rem;
-        }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:2rem 4rem;
+position:absolute;
+top:0;
+left:0;
+right:0;
+z-index:10;
+}
 
-        .hero-img-container {
-            max-width: 800px;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
+.logo{
+font-family:Arial,sans-serif;
+font-weight:900;
+font-size:2rem;
+letter-spacing:4px;
+text-transform:uppercase;
+color:white;
+}
 
-        .hero-img-container img {
-            width: 100%;
-            height: auto;
-            mix-blend-mode: multiply;
-        }
+.nav-tag{
+color:white;
+font-size:0.75rem;
+font-weight:600;
+letter-spacing:2px;
+text-transform:uppercase;
+border:1px solid rgba(255,255,255,0.4);
+padding:5px 15px;
+border-radius:20px;
+}
 
-        /* Secção de Detalhes */
-        .features {
-            padding: 6rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* HERO */
 
-        .feature-row {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            margin-bottom: 8rem;
-        }
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 
-        .feature-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
+background:
+linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.55)),
+url('capa.jpg');
 
-        .feature-text {
-            flex: 1;
-        }
+background-size:cover;
+background-position:center;
 
-        .feature-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            line-height: 1.2;
-        }
+color:white;
+}
 
-        .feature-text p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:5.5rem;
+font-weight:400;
+}
 
-        .feature-image {
-            flex: 1;
-        }
-        
-        .feature-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+.hero p{
+font-size:1rem;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-top:1rem;
+opacity:0.9;
+}
 
-        /* Grelha de Detalhes Específica */
-        .details-gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
+/* CONTAINER */
 
-        .details-gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .details-gallery img:hover {
-            transform: scale(1.02);
-        }
+.container{
+max-width:1100px;
+margin:auto;
+padding:8rem 2rem;
+}
 
-        .details-gallery img:first-child {
-            grid-column: 1 / -1; /* Faz a primeira imagem ocupar a largura toda da coluna */
-        }
+/* EDITORIAL */
 
-        /* Rodapé */
-        footer {
-            background-color: var(--smeg-dark);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        
-        footer p {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 1rem;
-        }
+.editorial{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:5rem;
+margin-bottom:4rem;
+}
 
-        /* Responsividade para telemóveis */
-        @media (max-width: 768px) {
-            .feature-row, .feature-row:nth-child(even) {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            nav { padding: 1.5rem; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-    </style>
+.editorial-image img{
+width:100%;
+border-radius:4px;
+box-shadow:0 20px 50px rgba(0,0,0,0.1);
+}
+
+.editorial-text h2{
+font-family:'Playfair Display',serif;
+font-size:3rem;
+line-height:1.1;
+margin-bottom:2rem;
+}
+
+/* DETAILS */
+
+.details-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem;
+margin-top:4rem;
+}
+
+.detail-item img{
+width:100%;
+height:400px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:1.5rem;
+}
+
+.detail-item h3{
+font-size:0.8rem;
+text-transform:uppercase;
+letter-spacing:2px;
+text-align:center;
+}
+
+/* LIFESTYLE */
+
+.lifestyle{
+height:80vh;
+
+background-image:url('lifestyle1.jpg');
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* INTERACTION */
+
+.interaction-title{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:2.5rem;
+margin-bottom:4rem;
+}
+
+.interaction-gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:1.5rem;
+}
+
+.interaction-card{
+background:var(--smeg-white);
+padding:1rem;
+border-radius:12px;
+transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interaction-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.interaction-card img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:6px;
+}
+
+.interaction-card p{
+text-align:center;
+font-size:0.7rem;
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-top:1rem;
+color:var(--smeg-metal);
+}
+
+/* FOOTER */
+
+footer{
+background:var(--smeg-dark);
+color:white;
+text-align:center;
+padding:6rem 2rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:850px){
+
+nav{
+padding:1.5rem;
+}
+
+.hero h1{
+font-size:3.5rem;
+}
+
+.editorial{
+grid-template-columns:1fr;
+gap:3rem;
+}
+
+.details-grid{
+grid-template-columns:1fr;
+}
+
+.container{
+padding:5rem 1.5rem;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">SMEG</div>
-        <div style="font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">COLEÇÃO ÁUDIO</div>
-    </nav>
+<nav>
+<div class="logo">SMEG</div>
+<div class="nav-tag">Coleção Áudio</div>
+</nav>
 
-    <section class="hero">
-        <h1>The Atelier</h1>
-        <p>A Acústica Encontra o Design Ícone</p>
-        
-        <div class="hero-img-container">
-            <img src="hero.jpg" alt="SMEG The Atelier Speaker">
-        </div>
-    </section>
+<section class="hero">
+<h1>The Atelier</h1>
+<p>A Acústica Encontra o Design Ícone</p>
+</section>
 
-    <section class="features">
-        
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>O Centro das Atenções,<br>em Qualquer Divisão</h2>
-                <p>Inspirada nas linhas inconfundíveis e nos raios de curvatura generosos dos nossos eletrodomésticos clássicos, a coluna "The Atelier" transforma a forma como vive a sua música.</p>
-                <p>Desenhada para ser uma peça de afirmação em bancadas de mármore ou mesas de centro, a sua volumetria monolítica garante a estabilidade e a inércia acústica necessárias para graves profundos, proporcionando o verdadeiro <em>Dolce Vita</em> italiano.</p>
-            </div>
-            <div class="feature-image">
-                <img src="lifestyle.jpg" alt="SMEG speaker num ambiente de cozinha clássico">
-            </div>
-        </div>
+<div class="container">
 
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>Honestidade Tátil e<br>Materiais Premium</h2>
-                <p>Rejeitamos o plástico banal e as interfaces digitais intrusivas. O corpo superior brilha num esmalte creme polido à mão, repousando sobre uma sólida grelha acústica em alumínio perfurado, pensada para a melhor dispersão sonora.</p>
-                <p>A interface tátil é esculpida em metal escovado frio ao toque, exigindo uma interação física e deliberada. A alça lateral, fixada mecanicamente, é feita em couro natural que desenvolve uma pátina única com o tempo. Um verdadeiro objeto tátil de desejo.</p>
-            </div>
-            
-            <div class="feature-image details-gallery">
-                <img src="detail-buttons.jpg" alt="Detalhe dos botões metálicos pesados">
-                <img src="detail-grelha.jpg" alt="Grelha acústica de alumínio perfurado">
-                <img src="detail-handle.jpg" alt="Pega de transporte em couro natural">
-            </div>
-        </div>
+<section class="editorial">
 
-    </section>
+<div class="editorial-image">
+<img src="coluna.jpg" alt="SMEG The Atelier" loading="lazy">
+</div>
 
-    <footer>
-        <div class="logo" style="color: white; margin-bottom: 1rem;">SMEG</div>
-        <p>Tecnologia com estilo.</p>
-        <p style="margin-top: 3rem;">© 2024 Design Concept | Projeto Académico ESAD - Licenciatura em Design de Produto (3º Ano)</p>
-    </footer>
+<div class="editorial-text">
+<h2>O Som Ganha uma Nova Forma</h2>
+<p>
+Equilíbrio entre a nostalgia dos anos 50 e engenharia acústica contemporânea.
+Um objeto desenhado para funcionar simultaneamente como sistema de áudio e peça de mobiliário.
+</p>
+</div>
+
+</section>
+
+<section class="details-grid">
+
+<div class="detail-item">
+<img src="detalhebotoes.jpg" alt="Interface tátil" loading="lazy">
+<h3>Interface Tátil</h3>
+</div>
+
+<div class="detail-item">
+<img src="detalhegrelha.jpg" alt="Grelha acústica" loading="lazy">
+<h3>Grelha de Alumínio</h3>
+</div>
+
+<div class="detail-item">
+<img src="detalhepega.jpg" alt="Pega de transporte" loading="lazy">
+<h3>Pega em Couro</h3>
+</div>
+
+</section>
+
+</div>
+
+<section class="lifestyle"></section>
+
+<div class="container">
+
+<h2 class="interaction-title">Experiência Atelier</h2>
+
+<div class="interaction-gallery">
+
+<div class="interaction-card">
+<img src="embalagem.jpg" alt="Packaging premium" loading="lazy">
+<p>Packaging Premium</p>
+</div>
+
+<div class="interaction-card">
+<img src="colunadesligada.jpg" alt="Modo standby" loading="lazy">
+<p>Modo Standby</p>
+</div>
+
+<div class="interaction-card">
+<img src="colunaligada.jpg" alt="Som ativo" loading="lazy">
+<p>Som Ativo</p>
+</div>
+
+<div class="interaction-card">
+<img src="colunacarregar.jpg" alt="Carregamento" loading="lazy">
+<p>Carga Indutiva</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<div class="logo" style="margin-bottom:2rem;">SMEG</div>
+
+<p style="opacity:0.6;font-size:0.8rem;">
+© 2024 Projeto Académico ESAD | Design de Produto
+</p>
+
+</footer>
 
 </body>
-
 </html>
