@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMEG | The Atelier Portable Speaker</title>
+    <title>SMEG | The Atelier - Brand-Form Analysis</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap');
 
         :root {
             --smeg-cream: #F5F4F0;
-            --smeg-dark: #232323;
-            --smeg-red: #D2282E;
-            --smeg-metal: #8F9194;
+            --smeg-dark: #1A1A1A;
+            --smeg-metal: #7A7C7E;
+            --smeg-accent: #D1D1D1;
+            --white: #FFFFFF;
         }
 
         body {
@@ -21,10 +22,10 @@
             background-color: var(--smeg-cream);
             color: var(--smeg-dark);
             line-height: 1.6;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navegação */
+        /* NAVEGAÇÃO */
         nav {
             display: flex;
             justify-content: space-between;
@@ -39,13 +40,33 @@
         .logo {
             font-family: 'Arial', sans-serif;
             font-weight: 900;
-            font-size: 2rem;
-            letter-spacing: 4px;
-            color: var(--smeg-dark);
+            font-size: 1.8rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            color: var(--white);
         }
 
-        /* Secção Hero */
+        .btn-votar {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 1.5px solid var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-votar:hover { 
+            background: var(--white); 
+            color: var(--smeg-dark); 
+            transform: translateY(-2px);
+        }
+
+        /* HERO - CAPA */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -53,133 +74,167 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 6rem 2rem 2rem;
-            background-color: #F8F8F8;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('capa.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+        .hero h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 6rem; 
+            margin: 0; 
+            font-style: italic;
             font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: var(--smeg-dark);
         }
 
         .hero p {
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 2px;
             text-transform: uppercase;
-            color: #666;
-            margin-bottom: 2rem;
+            letter-spacing: 6px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
-        .hero-img-container {
-            max-width: 800px;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
 
-        .hero-img-container img {
-            width: 100%;
-            height: auto;
-            mix-blend-mode: multiply;
-        }
-
-        /* Secção de Detalhes */
-        .features {
-            padding: 6rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-row {
-            display: flex;
+        /* SEÇÃO EDITORIAL */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            gap: 4rem;
-            margin-bottom: 8rem;
+            gap: 0;
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
         }
 
-        .feature-row:nth-child(even) {
-            flex-direction: row-reverse;
+        .editorial-image img { 
+            width: 100%; 
+            display: block; 
+            height: 600px; 
+            object-fit: cover; 
         }
 
-        .feature-text {
-            flex: 1;
-        }
+        .editorial-text { padding: 5rem; }
 
-        .feature-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            line-height: 1.2;
-        }
-
-        .feature-text p {
-            font-size: 1.1rem;
-            color: #555;
+        .editorial-text span {
+            display: block;
+            color: var(--smeg-metal);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 1rem;
         }
 
-        .feature-image {
-            flex: 1;
-        }
-        
-        .feature-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .editorial-text h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.8rem; 
+            line-height: 1.1;
+            margin-bottom: 1.5rem; 
         }
 
-        /* Grelha de Detalhes Específica */
+        .editorial-text p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        /* GALERIA DE DETALHES TÉCNICOS */
         .details-gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 6rem;
         }
 
-        .details-gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .details-gallery img:hover {
-            transform: scale(1.02);
+        .details-gallery div { text-align: left; }
+
+        .details-gallery h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.5rem 0;
         }
 
-        .details-gallery img:first-child {
-            grid-column: 1 / -1; /* Faz a primeira imagem ocupar a largura toda da coluna */
+        .details-gallery p {
+            font-size: 0.85rem;
+            color: var(--smeg-metal);
+            line-height: 1.5;
         }
 
-        /* Rodapé */
-        footer {
-            background-color: var(--smeg-dark);
-            color: white;
+        .details-gallery img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 2px; 
+            filter: grayscale(20%);
+        }
+
+        /* LIFESTYLE BANNER */
+        .lifestyle-banner {
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('lifestyle.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
             text-align: center;
-            padding: 4rem 2rem;
-        }
-        
-        footer p {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 1rem;
         }
 
-        /* Responsividade para telemóveis */
-        @media (max-width: 768px) {
-            .feature-row, .feature-row:nth-child(even) {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            nav { padding: 1.5rem; }
-            .hero h1 { font-size: 2.5rem; }
+        /* INTERAÇÃO E CMF */
+        .interaction-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .interaction-card img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            border-radius: 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        .interaction-card:hover img { border-bottom: 3px solid var(--smeg-metal); }
+
+        .interaction-card p { 
+            margin-top: 1.2rem; 
+            font-weight: 600; 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+
+        .interaction-card span {
+            font-size: 0.8rem;
+            color: var(--smeg-metal);
+            display: block;
+            margin-top: 5px;
+        }
+
+        footer { 
+            background: var(--smeg-dark); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 5rem 2rem; 
+        }
+
+        footer .logo { margin-bottom: 2rem; opacity: 0.5; }
+
+        @media (max-width: 900px) {
+            .editorial-grid { grid-template-columns: 1fr; }
+            .details-gallery, .interaction-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+            nav { padding: 1.5rem 2rem; }
         }
     </style>
 </head>
@@ -187,53 +242,91 @@
 
     <nav>
         <div class="logo">SMEG</div>
-        <div style="font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">COLEÇÃO ÁUDIO</div>
+        <a href="#" class="btn-votar">VOTAR NA VARIANTE</a>
     </nav>
 
-    <section class="hero">
+    <header class="hero">
         <h1>The Atelier</h1>
-        <p>A Acústica Encontra o Design Ícone</p>
+        <p>A Acústica Esculpida pela Herança</p>
+    </header>
+
+    <main class="container">
         
-        <div class="hero-img-container">
-            <img src="hero.jpg" alt="SMEG The Atelier Speaker">
+        <section class="editorial-grid">
+            <div class="editorial-image">
+                <img src="coluna.jpg" alt="Análise Visual SMEG">
+            </div>
+            <div class="editorial-text">
+                <span>Tradução de DNA</span>
+                <h2>Massa e Monolitismo</h2>
+                <p>O <strong>Atelier</strong> distancia-se da eletrónica efémera. Adotámos a geometria <em>Bombato</em> — curvaturas convexas contínuas com raios de $35mm$ — para criar um volume que desloca o ar tanto física como visualmente.</p>
+                <p>A estrutura em aço fundido não serve apenas a estética; providencia a massa inercial necessária para eliminar vibrações parasitas em volumes elevados.</p>
+            </div>
+        </section>
+
+        <section class="details-gallery">
+            <div>
+                <img src="detalhebotoe.jpg" alt="Interface Tátil">
+                <h3>Interface Analógica</h3>
+                <p>Substituímos o touch por seletores rotativos com recartilhado diamante e botões de pressão com "click" mecânico de 60g, emulando o feedback dos fornos clássicos Victoria.</p>
+            </div>
+            <div>
+                <img src="detalhegrelha.jpg" alt="Grelha Acústica">
+                <h3>Grelha de Precisão</h3>
+                <p>Inspirada nos radiadores dos anos 50, a grelha em alumínio anodizado apresenta micro-perfurações de $1.2mm$, garantindo transparência acústica sem expor os componentes internos.</p>
+            </div>
+            <div>
+                <img src="detalhepega.jpg" alt="Pega em Couro">
+                <h3>Ergonomia Nobre</h3>
+                <p>Pega em couro de sela com curtimenta vegetal e pespontos feitos à mão. Um ponto de contacto orgânico que contrasta com a frieza do corpo esmaltado.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="lifestyle-banner">
+        <div class="container">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic;">"Tecnologia invisível, presença eterna."</h2>
         </div>
     </section>
 
-    <section class="features">
+    <section class="container">
+        <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">Experiência Atelier</h2>
+        <p style="text-align: center; color: var(--smeg-metal); max-width: 600px; margin: 0 auto 4rem auto; font-size: 0.9rem;">
+            A integração do produto no espaço doméstico através de estados funcionais distintos.
+        </p>
         
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>O Centro das Atenções,<br>em Qualquer Divisão</h2>
-                <p>Inspirada nas linhas inconfundíveis e nos raios de curvatura generosos dos nossos eletrodomésticos clássicos, a coluna "The Atelier" transforma a forma como vive a sua música.</p>
-                <p>Desenhada para ser uma peça de afirmação em bancadas de mármore ou mesas de centro, a sua volumetria monolítica garante a estabilidade e a inércia acústica necessárias para graves profundos, proporcionando o verdadeiro <em>Dolce Vita</em> italiano.</p>
+        <div class="interaction-grid">
+            <div class="interaction-card">
+                <img src="embalagem.jpg" alt="Embalagem Sustentável">
+                <p>Material Stack</p>
+                <span>Polpa de papel moldada e tintas de soja. Zero plástico.</span>
             </div>
-            <div class="feature-image">
-                <img src="lifestyle.jpg" alt="SMEG speaker num ambiente de cozinha clássico">
+            <div class="interaction-card">
+                <img src="colunadesligada.jpg" alt="Modo Repouso">
+                <p>Modo Objeto</p>
+                <span>Em repouso, a coluna atua como um elemento decorativo escultórico.</span>
             </div>
-        </div>
-
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>Honestidade Tátil e<br>Materiais Premium</h2>
-                <p>Rejeitamos o plástico banal e as interfaces digitais intrusivas. O corpo superior brilha num esmalte creme polido à mão, repousando sobre uma sólida grelha acústica em alumínio perfurado, pensada para a melhor dispersão sonora.</p>
-                <p>A interface tátil é esculpida em metal escovado frio ao toque, exigindo uma interação física e deliberada. A alça lateral, fixada mecanicamente, é feita em couro natural que desenvolve uma pátina única com o tempo. Um verdadeiro objeto tátil de desejo.</p>
+            <div class="interaction-card">
+                <img src="colunaligada.jpg" alt="Modo Ativo">
+                <p>Performance</p>
+                <span>Fidelidade sonora de 92dB com resposta de frequência plana.</span>
             </div>
-            
-            <div class="feature-image details-gallery">
-                <img src="detail-buttons.jpg" alt="Detalhe dos botões metálicos pesados">
-                <img src="detail-grelha.jpg" alt="Grelha acústica de alumínio perfurado">
-                <img src="detail-handle.jpg" alt="Pega de transporte em couro natural">
+            <div class="interaction-card">
+                <img src="coluncarregar.jpg" alt="Carga por Indução">
+                <p>Charging Base</p>
+                <span>Base circular magnética que mantém o alinhamento estético.</span>
             </div>
         </div>
-
     </section>
 
     <footer>
-        <div class="logo" style="color: white; margin-bottom: 1rem;">SMEG</div>
-        <p>Tecnologia com estilo.</p>
-        <p style="margin-top: 3rem;">© 2024 Design Concept | Projeto Académico ESAD - Licenciatura em Design de Produto (3º Ano)</p>
+        <div class="logo">SMEG</div>
+        <p style="font-size: 0.7rem; letter-spacing: 2px; opacity: 0.6;">
+            © 2024 PROJETO ACADÉMICO ESAD | DESIGN DE PRODUTO<br>
+            CURSO DE CURTA DURAÇÃO AI
+        </p>
     </footer>
 
 </body>
-
 </html>
