@@ -12,6 +12,7 @@
             --smeg-dark: #232323;
             --smeg-red: #D2282E;
             --smeg-metal: #8F9194;
+            --smeg-light-grey: #EAEAEA;
         }
 
         body {
@@ -24,7 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* Navegação adaptada para fundo de imagem */
+        /* Navegação */
         nav {
             display: flex;
             justify-content: space-between;
@@ -46,7 +47,7 @@
             text-transform: uppercase;
         }
 
-        /* NOVA SECÇÃO HERO - Imagem de Capa Grande */
+        /* SECÇÃO CAPA */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -55,11 +56,10 @@
             align-items: center;
             text-align: center;
             padding: 6rem 2rem 2rem;
-            /* A imagem de capa entra aqui. O linear-gradient ajuda a escurecer um pouco para o texto ler-se bem */
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('capa.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Cria um efeito suave de parallax a fazer scroll */
+            background-attachment: fixed;
         }
 
         .hero h1 {
@@ -80,17 +80,71 @@
             margin-bottom: 2rem;
         }
 
-        /* Secção de Detalhes */
+        /* CONTAINER PRINCIPAL */
         .features {
-            padding: 6rem 4rem;
+            padding: 4rem 4rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* NOVA SECÇÃO EDITORIAL (Destaque para a hero1.jpg) */
+        .editorial-block {
+            display: flex;
+            align-items: center;
+            background-color: var(--smeg-light-grey);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 8rem;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .editorial-text {
+            flex: 1;
+            padding: 5rem;
+        }
+
+        .editorial-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--smeg-dark);
+        }
+
+        .editorial-text p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .editorial-image {
+            flex: 1.2; /* Dá um pouco mais de espaço à imagem */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF; /* Fundo branco para a coluna estalar */
+            padding: 3rem;
+        }
+
+        .editorial-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            mix-blend-mode: multiply;
+            transition: transform 0.5s ease;
+        }
+
+        .editorial-block:hover .editorial-image img {
+            transform: scale(1.05); /* Efeito suave ao passar o rato */
+        }
+
+        /* Secções Restantes (Lifestyle e Detalhes) */
         .feature-row {
             display: flex;
             align-items: center;
-            gap: 4rem;
+            gap: 5rem;
             margin-bottom: 8rem;
         }
 
@@ -124,14 +178,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Imagem Isolada (hero1.jpg) sem sombra para parecer estar pousada na página */
-        .img-isolada img {
-            box-shadow: none;
-            mix-blend-mode: multiply; /* Torna o fundo branco da imagem transparente se a página for creme */
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         /* Grelha de Detalhes Específica */
@@ -144,7 +192,7 @@
         .details-gallery img {
             width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
         }
@@ -172,11 +220,17 @@
         }
 
         /* Responsividade para telemóveis */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .editorial-block {
+                flex-direction: column;
+            }
+            .editorial-text {
+                padding: 3rem;
+            }
             .feature-row, .feature-row:nth-child(even) {
                 flex-direction: column;
                 text-align: center;
-                gap: 2rem;
+                gap: 3rem;
             }
             nav { padding: 1.5rem; }
             .hero h1 { font-size: 3rem; }
@@ -197,13 +251,13 @@
 
     <section class="features">
         
-        <div class="feature-row">
-            <div class="feature-text">
+        <div class="editorial-block">
+            <div class="editorial-text">
                 <h2>O Som Ganha<br>uma Nova Forma</h2>
                 <p>Com volumes esculpidos e curvas nostálgicas, "The Atelier" não é apenas um dispositivo eletrónico, é uma extensão da arquitetura do seu espaço.</p>
                 <p>Despida de distrações visuais, a sua forma monolítica homenageia as raízes do design industrial italiano dos anos 50, com tecnologia de ponta escondida no seu interior.</p>
             </div>
-            <div class="feature-image img-isolada">
+            <div class="editorial-image">
                 <img src="hero1.jpg" alt="Vista isolada da coluna SMEG The Atelier">
             </div>
         </div>
