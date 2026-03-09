@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smeg Retrô | Loja Oficial</title>
+    <title>Smeg Retrò | Loja Oficial</title>
     <style>
-        /* Variáveis de Marca */
+        /* --- Variáveis de Marca --- */
         :root {
             --smeg-cream: #f4f1eb;
             --text-dark: #222222;
@@ -17,28 +17,35 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
             color: var(--text-dark);
             line-height: 1.6;
             padding-top: 80px; 
-            overflow-x: hidden; /* Evita scroll horizontal com o painel lateral */
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 { font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; }
+        h1, h2, h3, h4 { font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Navegação */
+        /* --- Navegação --- */
         nav {
             position: fixed; top: 0; width: 100%; height: 80px;
-            background-color: var(--smeg-cream);
+            background-color: rgba(244, 241, 235, 0.95);
+            backdrop-filter: blur(10px);
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 40px; z-index: 1000;
             border-bottom: 1px solid var(--border-light);
         }
 
         .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.2em; }
+        
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-link { color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; }
+        .nav-link:hover { color: var(--text-light); }
 
         .cart-icon { position: relative; cursor: pointer; display: flex; align-items: center; }
         .cart-icon svg { width: 24px; height: 24px; transition: transform 0.2s; }
@@ -50,13 +57,55 @@
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
         }
 
-        /* Hero / E-commerce */
-        .product-hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; padding: 60px 0; }
+        /* --- SECÇÃO 1: Storytelling Hero --- */
+        .story-hero {
+            height: calc(100vh - 80px); min-height: 600px;
+            background-image: linear-gradient(rgba(244, 241, 235, 0.2), rgba(244, 241, 235, 0.8)), url('capa.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+        }
+        .story-hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: 0.1em; }
+        .story-hero p { font-size: 1.2rem; color: var(--text-dark); max-width: 600px; margin-bottom: 40px; }
+        .scroll-down {
+            display: inline-block; padding: 15px 30px; border: 1px solid var(--text-dark);
+            color: var(--text-dark); text-decoration: none; text-transform: uppercase;
+            letter-spacing: 0.1em; font-size: 0.9rem; transition: all 0.3s;
+        }
+        .scroll-down:hover { background-color: var(--text-dark); color: white; }
 
-        /* Galeria Interativa */
+        /* --- SECÇÃO 2: Conceito & Detalhes --- */
+        .presentation-section { padding: 100px 0; background-color: white; }
+        .presentation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
+        .presentation-grid:last-child { margin-bottom: 0; }
+        .presentation-grid.reverse { direction: rtl; }
+        .presentation-grid.reverse > * { direction: ltr; }
+        
+        .presentation-text h2 { font-size: 2rem; margin-bottom: 20px; }
+        .presentation-text p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 15px; }
+        .presentation-image img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        /* --- SECÇÃO 3: Engenharia Tátil (3 Colunas) --- */
+        .details-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 100px 0;
+            background-color: var(--smeg-cream); text-align: center;
+        }
+        .detail-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 20px; }
+        .detail-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .detail-item p { color: var(--text-light); font-size: 0.95rem; padding: 0 10px; }
+
+        /* --- SECÇÃO 4: A Loja (E-commerce) --- */
+        .shop-section { padding: 100px 0 60px 0; border-top: 1px solid var(--border-light); }
+        .shop-header { text-align: center; margin-bottom: 60px; }
+        .shop-header h2 { font-size: 2.5rem; }
+        .shop-header p { color: var(--text-light); margin-top: 10px; }
+
+        .product-hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
+        
+        /* Galeria da Loja */
         .product-gallery { display: flex; flex-direction: column; gap: 20px; }
         .main-image {
-            width: 100%; height: 600px; background-color: var(--smeg-cream);
+            width: 100%; height: 500px; background-color: var(--smeg-cream);
             display: flex; justify-content: center; align-items: center;
             border-radius: 4px; overflow: hidden;
         }
@@ -69,9 +118,9 @@
         .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
         .thumbnail.active, .thumbnail:hover { border-color: var(--text-dark); }
 
-        /* Informação do Produto */
+        /* Buy Box */
         .product-info { display: flex; flex-direction: column; justify-content: center; }
-        .product-info h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .product-info h1 { font-size: 2rem; margin-bottom: 10px; }
         .price { font-size: 1.5rem; color: var(--text-light); margin-bottom: 30px; }
         .description { color: var(--text-light); margin-bottom: 40px; font-size: 1.05rem; }
 
@@ -96,14 +145,13 @@
         .btn-cart:hover { background-color: var(--button-hover); }
         .shipping-note { font-size: 0.8rem; color: #888; margin-bottom: 40px; }
 
-        /* Banner de Lifestyle */
+        /* --- SECÇÃO 5: Banner & Avaliações --- */
         .lifestyle-banner {
-            width: 100%; height: 70vh;
-            background-image: url('lifestyle1.jpg'); background-size: cover;
-            background-position: center; background-attachment: fixed; margin: 60px 0;
+            width: 100%; height: 50vh;
+            background-image: url('embalagem.jpg'); background-size: cover;
+            background-position: center; background-attachment: fixed; margin: 40px 0;
         }
 
-        /* Avaliações */
         .reviews-section { padding: 80px 0; background-color: var(--smeg-cream); }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 2rem; }
@@ -114,14 +162,13 @@
         .review-text { font-style: italic; color: var(--text-light); margin-bottom: 20px; }
         .review-author { font-weight: bold; font-size: 0.9rem; }
 
-        /* Offcanvas Cart Styles */
+        /* --- Offcanvas Cart (Mantido) --- */
         .cart-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.4); z-index: 1001;
             opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
         .cart-overlay.active { opacity: 1; visibility: visible; }
-
         .cart-sidebar {
             position: fixed; top: 0; right: 0; width: 400px; height: 100vh;
             background-color: #fff; z-index: 1002;
@@ -129,44 +176,35 @@
             display: flex; flex-direction: column; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
         }
         .cart-sidebar.open { transform: translateX(0); }
-
         .cart-header {
             padding: 30px 20px; border-bottom: 1px solid var(--border-light);
-            display: flex; justify-content: space-between; align-items: center;
-            background-color: var(--smeg-cream);
+            display: flex; justify-content: space-between; align-items: center; background-color: var(--smeg-cream);
         }
         .cart-header h3 { font-size: 1.2rem; margin: 0; }
-        .close-cart { background: none; border: none; font-size: 2rem; cursor: pointer; line-height: 1; color: var(--text-light); }
-
+        .close-cart { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text-light); }
         .cart-body { padding: 20px; flex-grow: 1; overflow-y: auto; }
         .empty-msg { text-align: center; color: var(--text-light); margin-top: 40px; }
-        
-        /* Item no Cesto */
-        .cart-item {
-            display: flex; gap: 15px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 20px;
-        }
+        .cart-item { display: flex; gap: 15px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 20px; }
         .cart-item-img { width: 80px; height: 80px; background-color: var(--smeg-cream); border-radius: 4px; object-fit: cover; }
         .cart-item-info { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
         .cart-item-title { font-weight: bold; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px; }
         .cart-item-price { color: var(--text-light); font-size: 0.9rem; margin-bottom: 5px; }
         .cart-item-qty { font-size: 0.8rem; color: #888; }
-
         .cart-footer { padding: 30px 20px; border-top: 1px solid var(--border-light); background-color: #fff; }
         .cart-total { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; }
         .btn-checkout {
-            width: 100%; background-color: var(--text-dark); color: white;
-            border: none; padding: 18px; font-size: 1rem; text-transform: uppercase;
-            letter-spacing: 0.1em; cursor: pointer; border-radius: 4px; transition: 0.3s;
+            width: 100%; background-color: var(--text-dark); color: white; border: none; padding: 18px;
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border-radius: 4px; transition: 0.3s;
         }
         .btn-checkout:hover { background-color: var(--button-hover); }
         .btn-checkout:disabled { background-color: #ccc; cursor: not-allowed; }
 
-        /* Footer */
         footer { background-color: var(--text-dark); color: white; text-align: center; padding: 40px 20px; font-size: 0.8rem; }
 
         @media (max-width: 900px) {
-            .product-hero { grid-template-columns: 1fr; }
-            .main-image { height: 400px; }
+            .presentation-grid, .product-hero { grid-template-columns: 1fr; }
+            .presentation-grid.reverse > div:first-child { order: 2; }
+            .details-grid { grid-template-columns: 1fr; padding: 60px 20px; }
             .cart-sidebar { width: 100%; }
         }
     </style>
@@ -175,13 +213,16 @@
 
     <nav>
         <div class="logo">S M E G</div>
-        <div class="cart-icon" onclick="openCart()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span class="cart-badge" id="cart-count">0</span>
+        <div class="nav-right">
+            <a href="#loja" class="nav-link">Comprar Agora</a>
+            <div class="cart-icon" onclick="openCart()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-badge" id="cart-count">0</span>
+            </div>
         </div>
     </nav>
 
@@ -205,46 +246,100 @@
     </div>
 
     <main>
-        <section class="container product-hero">
-            <div class="product-gallery">
-                <div class="main-image">
-                    <img id="main-product-img" src="capa.jpg" alt="Smeg Retrò Portable Speaker">
+        <section class="story-hero">
+            <h1>O Design Ganha Voz</h1>
+            <p>A harmonia perfeita entre a estética intemporal dos anos 50 e a liberdade do áudio portátil contemporâneo.</p>
+            <a href="#apresentacao" class="scroll-down">Descobrir o Produto</a>
+        </section>
+
+        <section id="apresentacao" class="presentation-section container">
+            <div class="presentation-grid">
+                <div class="presentation-image">
+                    <img src="lifestyle1.jpg" alt="Coluna integrada no ambiente de cozinha">
                 </div>
-                <div class="thumbnail-strip">
-                    <div class="thumbnail active" onclick="changeImage('capa.jpg', this)">
-                        <img src="capa.jpg" alt="Vista Ambiente">
-                    </div>
-                    <div class="thumbnail" onclick="changeImage('coluna.jpg', this)">
-                        <img src="coluna.jpg" alt="Vista Frontal">
-                    </div>
-                    <div class="thumbnail" onclick="changeImage('detalhebotoes.jpg', this)">
-                        <img src="detalhebotoes.jpg" alt="Detalhe Botões">
-                    </div>
-                    <div class="thumbnail" onclick="changeImage('colunacarregar.jpg', this)">
-                        <img src="colunacarregar.jpg" alt="Carregamento">
-                    </div>
-                    <div class="thumbnail" onclick="changeImage('embalagem.jpg', this)">
-                        <img src="embalagem.jpg" alt="Embalagem">
-                    </div>
+                <div class="presentation-text">
+                    <h2>Integração Perfeita</h2>
+                    <p>Desenhada para complementar o ecossistema da sua casa. As superfícies brilhantes e as curvas contínuas conversam na perfeição com os icónicos eletrodomésticos Smeg.</p>
+                    <p>Não é apenas uma coluna de som; é uma peça central de decoração que eleva qualquer ambiente, da bancada da cozinha à mesa de centro da sala.</p>
                 </div>
             </div>
 
-            <div class="product-info">
-                <h1>Retrò Portable Speaker</h1>
-                <div class="price">249,00 €</div>
-                <p class="description">
-                    A excelência acústica encontra o design intemporal. Inspirada nas linhas icónicas do pós-guerra, esta coluna Bluetooth premium funde superfícies em esmalte de alto brilho com detalhes em aço escovado e uma alça em couro genuíno. Som imersivo, autonomia de 18 horas e engenharia tátil refinada.
-                </p>
-
-                <div class="add-to-cart-container">
-                    <div class="quantity-selector">
-                        <button onclick="changeQty(-1)">-</button>
-                        <input type="text" id="qty-input" value="1" readonly>
-                        <button onclick="changeQty(1)">+</button>
-                    </div>
-                    <button class="btn-cart" onclick="addToCart()">Adicionar ao Cesto</button>
+            <div class="presentation-grid reverse">
+                <div class="presentation-image">
+                    <img src="colunacarregar.jpg" alt="Vista de perfil e carregamento USB-C">
                 </div>
-                <p class="shipping-note">Envio gratuito em 24/48h. Garantia de 3 anos.</p>
+                <div class="presentation-text">
+                    <h2>Tecnologia Invisível</h2>
+                    <p>A beleza clássica esconde um motor sonoro de última geração. Com carregamento USB-C discreto e uma bateria de longa duração, a conectividade é fluida e sem interrupções.</p>
+                    <p>A pureza da forma não foi sacrificada pela função. Cada porta e indicador LED foi integrado de forma magistral para não comprometer a silhueta monolítica.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="details-grid">
+            <div class="detail-item">
+                <img src="detalhepega.jpg" alt="Detalhe da pega em couro">
+                <h3>Memória Tátil</h3>
+                <p>Alça ergonómica em couro genuíno, fixada com ferragens de precisão. Um material que envelhece consigo, ganhando caráter a cada viagem.</p>
+            </div>
+            <div class="detail-item">
+                <img src="detalhebotoes.jpg" alt="Detalhe dos botões mecânicos">
+                <h3>Ação Mecânica</h3>
+                <p>Rejeitámos ecrãs táteis em prol de botões físicos robustos em aço escovado. Sentir o "clique" mecânico é voltar a uma era de construção sólida.</p>
+            </div>
+            <div class="detail-item">
+                <img src="detalhegrelha.jpg" alt="Detalhe da grelha de áudio">
+                <h3>Assinatura Acústica</h3>
+                <p>A malha metálica perfurada não protege apenas os drivers de alta fidelidade; foi desenhada para uma dispersão sonora omnidirecional, rica em graves.</p>
+            </div>
+        </section>
+
+        <section id="loja" class="shop-section">
+            <div class="container">
+                <div class="shop-header">
+                    <h2>Adquira a sua Smeg Retrò</h2>
+                    <p>Selecione a quantidade e comece a desfrutar de um som com estilo.</p>
+                </div>
+
+                <div class="product-hero">
+                    <div class="product-gallery">
+                        <div class="main-image">
+                            <img id="main-product-img" src="coluna.jpg" alt="Smeg Retrò Portable Speaker Frontal">
+                        </div>
+                        <div class="thumbnail-strip">
+                            <div class="thumbnail active" onclick="changeImage('coluna.jpg', this)">
+                                <img src="coluna.jpg" alt="Vista Frontal">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage('colunadesligada.jpg', this)">
+                                <img src="colunadesligada.jpg" alt="Vista Traseira">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage('colunaligada.jpg', this)">
+                                <img src="colunaligada.jpg" alt="Indicadores LED">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage('embalagem.jpg', this)">
+                                <img src="embalagem.jpg" alt="Embalagem">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <h1>Retrò Portable Speaker</h1>
+                        <div class="price">249,00 €</div>
+                        <p class="description">
+                            A edição base inclui a coluna na cor Creme Esmalte, cabo de carregamento USB-C coordenado por cor e manual de instruções. Bateria para 18 horas de reprodução contínua.
+                        </p>
+
+                        <div class="add-to-cart-container">
+                            <div class="quantity-selector">
+                                <button onclick="changeQty(-1)">-</button>
+                                <input type="text" id="qty-input" value="1" readonly>
+                                <button onclick="changeQty(1)">+</button>
+                            </div>
+                            <button class="btn-cart" onclick="addToCart()">Adicionar ao Cesto</button>
+                        </div>
+                        <p class="shipping-note">Em *stock*. Envio gratuito em 24/48h. Garantia oficial de 3 anos.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -253,24 +348,24 @@
         <section class="reviews-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Avaliações de Clientes</h2>
+                    <h2>O Que Dizem os Nossos Clientes</h2>
                     <div class="stars-aggregate">★★★★★</div>
-                    <p>4.9 / 5 Baseado em 128 avaliações</p>
+                    <p>4.9 / 5 Baseado em 128 avaliações verificadas</p>
                 </div>
                 <div class="reviews-grid">
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Excecional. O acabamento em creme combina perfeitamente com a minha liquidificadora Smeg. O peso da coluna transmite muita qualidade e o som tem uns graves surpreendentes para o tamanho."</p>
+                        <p class="review-text">"Excecional. O acabamento em creme combina perfeitamente com a minha liquidificadora Smeg. O peso da coluna transmite muita qualidade e o som tem uns graves surpreendentes."</p>
                         <p class="review-author">— Marco T., Milano</p>
                     </div>
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Os botões físicos são uma lufada de ar fresco numa era de ecrãs táteis. A alça de pele é robusta e muito elegante. Vale cada cêntimo."</p>
+                        <p class="review-text">"Os botões físicos são uma lufada de ar fresco numa era de ecrãs táteis. A alça de pele é robusta e muito elegante. A verdadeira Dolce Vita em formato áudio."</p>
                         <p class="review-author">— Sofia R., Lisboa</p>
                     </div>
                     <div class="review-card">
                         <div class="review-stars">★★★★☆</div>
-                        <p class="review-text">"Design belíssimo e som claro. A embalagem é digna de um produto de luxo. Apenas não dou 5 estrelas porque gostava que trouxesse uma bolsa de transporte de viagem."</p>
+                        <p class="review-text">"Design belíssimo e som muito claro, ideal para jazz e acústico. A embalagem é digna de um produto de luxo. Apenas não dou 5 estrelas porque gostava que trouxesse uma bolsa de tecido."</p>
                         <p class="review-author">— Thomas B., Berlim</p>
                     </div>
                 </div>
@@ -283,11 +378,9 @@
     </footer>
 
     <script>
-        // Variáveis de estado
         const productPrice = 249.00;
         let cartTotalItems = 0;
         
-        // Elementos do DOM
         const cartOverlay = document.getElementById('cart-overlay');
         const cartSidebar = document.getElementById('cart-sidebar');
         const cartCount = document.getElementById('cart-count');
@@ -296,25 +389,22 @@
         const totalPriceEl = document.getElementById('cart-total-price');
         const btnCheckout = document.getElementById('btn-checkout');
 
-        // Mudar Imagem Principal
         function changeImage(src, element) {
             document.getElementById('main-product-img').src = src;
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             element.classList.add('active');
         }
 
-        // Alterar Quantidade na Página
         function changeQty(amount) {
             let input = document.getElementById('qty-input');
             let current = parseInt(input.value);
             if (current + amount >= 1) input.value = current + amount;
         }
 
-        // Abrir/Fechar Cesto
         function openCart() {
             cartOverlay.classList.add('active');
             cartSidebar.classList.add('open');
-            document.body.style.overflow = 'hidden'; // Impede scroll da página
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeCart() {
@@ -323,19 +413,15 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Adicionar ao Cesto
         function addToCart() {
             let qtyToAdd = parseInt(document.getElementById('qty-input').value);
             cartTotalItems += qtyToAdd;
             
-            // Atualiza ícone
             cartCount.innerText = cartTotalItems;
             
-            // Renderiza item no cesto lateral
             emptyMsg.style.display = 'none';
             btnCheckout.disabled = false;
             
-            // (Simplificado: recria o HTML do item com a nova quantidade total para não duplicar linhas)
             cartItemsContainer.innerHTML = `
                 <div class="cart-item">
                     <img src="coluna.jpg" class="cart-item-img" alt="Smeg Speaker">
@@ -347,11 +433,9 @@
                 </div>
             `;
             
-            // Atualiza Total
             let totalValue = cartTotalItems * productPrice;
             totalPriceEl.innerText = totalValue.toFixed(2).replace('.', ',') + ' €';
 
-            // Feedback visual no botão principal
             let btn = document.querySelector('.btn-cart');
             let originalText = btn.innerText;
             btn.innerText = "Adicionado!";
@@ -360,7 +444,7 @@
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.style.backgroundColor = "";
-                openCart(); // Abre o cesto automaticamente após adicionar
+                openCart(); 
             }, 800);
         }
     </script>
